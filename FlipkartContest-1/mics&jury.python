@@ -1,0 +1,17 @@
+class Solution:
+    def micsandjury (self, N, M, teams):
+        high = max(teams)
+        low = 1
+        ans = high
+        while(low<=high):
+            mid = (low+high)//2
+            req = 0
+            for val in teams:
+                req += math.ceil(val/mid)
+            print(req, mid)
+            if(req<=N):
+                ans = mid
+                high = mid-1
+            else:
+                low = mid+1
+        return ans
